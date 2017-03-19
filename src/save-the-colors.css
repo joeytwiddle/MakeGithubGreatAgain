@@ -167,3 +167,7 @@ a {
     background-color: #fff;
     border-color: #e09a6a #e1e4e8 transparent;
 }
+/* Active tab underline on user profile page */
+.great-again .underline-nav-item.selected {
+    border-bottom-color: #e09a6a;
+}
