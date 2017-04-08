@@ -13,11 +13,13 @@ function replaceHeader() {
 
         // default to always removing the border
         headerBar.classList.add('great-header');
+        headerBar.classList.add('short-header');
 
         // check storage if we want it back
         chrome.storage.sync.get(['enabled'], function (results) {
             if (results.enabled || results.enabled === undefined) {
                  headerBar.classList.add('great-header');
+                 headerBar.classList.add('short-header');
             }
         });
 
@@ -35,6 +37,7 @@ document.addEventListener('DOMContentLoaded', replaceHeader);
 chrome.runtime.onMessage.addListener(function (message, sender, callback) {
     if (message === 'toggle_style') {
         headerBar.classList.toggle('great-header');
+        headerBar.classList.toggle('short-header');
         document.querySelector('body').classList.toggle('great-again');
     }
 });
