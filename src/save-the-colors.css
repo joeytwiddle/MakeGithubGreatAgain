@@ -370,6 +370,17 @@ a {
 .great-again .timeline-comment-group:target .reaction-summary-item {
     border-right-color: #a1a5aa;
 }
+/* The box which highlights review comments */
+.great-again .timeline-comment:target .review-summary {
+    /* box-shadow: 0 0 0 0.2em #a1a5aa;*/
+    box-shadow: transparent;
+}
+.great-again .timeline-comment:target .review-summary::before {
+    border-bottom-color: #6a6d71;
+}
+.great-again .timeline-comment:target .review-summary .comment-body {
+    border: 1px solid #6a6d71;
+}
 
 /* red, green and purple in issues/PRs */
 .great-again .closed.octicon,
