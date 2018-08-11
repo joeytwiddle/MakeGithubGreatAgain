@@ -372,14 +372,30 @@ a {
 }
 /* The box which highlights review comments */
 .great-again .timeline-comment:target .review-summary {
-    /* box-shadow: 0 0 0 0.2em #a1a5aa;*/
-    box-shadow: transparent;
+    /* box-shadow: 0 0 0 0.2em #a1a5aa; */
+    box-shadow: 0 0 0 0.2em transparent;
 }
 .great-again .timeline-comment:target .review-summary::before {
     border-bottom-color: #6a6d71;
+    /* filter: drop-shadow(0 -0.28em 0 #a1a5aa); */
+    filter: drop-shadow(0 -0.28em 0 transparent);
 }
 .great-again .timeline-comment:target .review-summary .comment-body {
     border: 1px solid #6a6d71;
+    box-shadow: transparent;
+}
+
+/* Resize the diagonal border of the arrow tab above review comments, to match the width of the box border */
+.great-again .review-summary::after {
+    top: -15.6px;
+}
+.great-again .review-summary::after,
+.great-again .review-summary::before {
+    left: 10.4px;
+    border-width: 8.6px;
+}
+.great-again .review-summary::before {
+    top: -17px;
 }
 
 /* red, green and purple in issues/PRs */
