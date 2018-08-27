@@ -503,8 +503,23 @@ a {
 /* yellow */
 /* As seen here: https://github.com/ssbc/patchwork/network/members */
 /* This is probably the new color, and we will need to dig up the old one. */
-.network .current-repository {
+.great-again .network .current-repository {
     background-color: #fff6a9;
+}
+/* Pending review comments do not need such a bright yellow */
+.great-again .discussion-item-review.is-pending .file-header,
+.great-again .discussion-item-review.is-pending .comment-form-head.tabnav {
+    background-color: hsl(53, 60%, 97%);
+}
+.great-again .discussion-item-review.is-pending .file,
+.great-again .discussion-item-review.is-pending .file-header,
+.great-again .discussion-item-review.is-pending .tabnav-tab.selected,
+.great-again .discussion-item-review.is-pending .comment-form-head.tabnav {
+    border-color: hsl(50, 5%, 75%);
+}
+.great-again .is-pending .review-summary-form-wrapper {
+    /* Replace: #d9d0a5 */
+    border-color: hsl(50, 5%, 75%);
 }
 
 /* Commit messages on the /commits page (now #444d56) */
