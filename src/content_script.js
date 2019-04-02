@@ -11,7 +11,7 @@ function initOnce () {
         // send a message to the background script to enable the page action
         chrome.runtime.sendMessage('enable_page_action', function () {});
     }
-    applyStyle();
+    applyStyle(true);
 }
 
 // event listeners
@@ -21,23 +21,32 @@ document.addEventListener('DOMContentLoaded', initOnce);
 // listen for messages from the background script to update
 chrome.runtime.onMessage.addListener(function (message, sender, callback) {
     if (message === 'apply_style') {
-        applyStyle();
+        applyStyle(false);
     }
 });
 
-function applyStyle () {
-    chrome.storage.sync.get({
-        enabled: true,
-        originalHeader: true,
-        shortHeader: true,
-        shortSearchBox: true,
-        originalColors: true,
-    }, function (options) {
+function getOptions () {
+    return new Promise(resolve =>
+        chrome.storage.sync.get({
+            enabled: true,
+            originalHeader: true,
+            shortHeader: true,
+            shortSearchBox: true,
+            originalColors: true,
+        }, resolve)
+    );
+}
+
+var preloadOptions = getOptions();
+
+function applyStyle (firstRun) {
+    var optionsProm = firstRun ? preloadOptions : getOptions();
+    optionsProm.then(options => {
         resetClasses();
         if (options.enabled) {
             setClasses(options);
         }
-    });
+    }).catch(console.error);
 }
 
 function resetClasses () {
