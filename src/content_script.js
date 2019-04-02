@@ -10,6 +10,12 @@ function initOnce () {
 
         // send a message to the background script to enable the page action
         chrome.runtime.sendMessage('enable_page_action', function () {});
+
+        // The options fetch is slow.  On the first run, let's disable the dark header.
+        // This may cause flicker for dark-header uses, but white to black flicker is less noticeable.
+        // Suggested here: https://github.com/DennisSnijder/MakeGithubGreatAgain/issues/48#issuecomment-280831397
+        // Unfortunately this doesn't work right now because the black styling isn't actually on header-dark.
+        headerBar.classList.add('header-dark');
     }
     applyStyle();
 }
