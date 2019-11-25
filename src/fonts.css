@@ -84,3 +84,9 @@ body.great-again,
 .great-again .casestudy-body blockquote {
     font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
+.great-again .file-info {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
+.great-again .text-mono {
+    font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+}
