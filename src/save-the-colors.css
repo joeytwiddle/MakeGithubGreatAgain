@@ -20,8 +20,9 @@ body.great-again {
 .great-again .btn-danger {
     color: #bd2c00 !important;
 }
-.great-again .State--red {
-    background-color: #bd2c00;
+.great-again .State--red,
+.great-again .bg-red {
+    background-color: #bd2c00 !important;
 }
 
 /* green */
@@ -250,6 +251,7 @@ a {
 
 /* purple */
 .great-again .state-merged,
+.great-again .bg-purple,
 .great-again .discussion-item-merged .discussion-item-icon,
 .great-again .branch-action-state-merged .branch-action-icon {
     background-color: #6e5494 !important;
